@@ -71,7 +71,7 @@ const NavBar = () => {
               ease: "easeInOut",
             }}
             role="list"
-            className="navBar__items--list flex gap-600"
+            className="navBar__items--list | flex-direction-column flex gap-600"
           >
             <button
               onClick={() => setIsMenuClosed(true)}

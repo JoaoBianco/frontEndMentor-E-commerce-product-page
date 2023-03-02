@@ -4,7 +4,7 @@ import Photos from "../photos/Photos";
 
 const Main = () => {
   return (
-    <div>
+    <div className="main | flex">
       <Infos />
       <Photos />
     </div>
