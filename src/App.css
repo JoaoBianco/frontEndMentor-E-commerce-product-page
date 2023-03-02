@@ -9,6 +9,11 @@
 
   --clr-white: hsl(0, 0%, 100%);
   --clr-black: hsl(0, 0%, 0%);
+
+  --spacer-400: 1rem;
+  --spacer-500: 1.5rem;
+  --spacer-550: 1.75rem;
+  --spacer-600: 2rem;
 }
 
 /* utility */
@@ -19,4 +24,8 @@
 
 .fw-700 {
   font-weight: 700;
+}
+
+.container {
+  padding: var(--spacer-400);
 }
