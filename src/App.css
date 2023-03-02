@@ -99,6 +99,12 @@
   font-weight: 700;
 }
 
+.accent__text {
+  font-size: var(--fs-300);
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
 .space-between {
   justify-content: space-between;
 }
@@ -216,6 +222,9 @@ svg {
 }
 
 @media (max-width: 1000px) {
+  .container:has(> .navBar) {
+    padding-bottom: 0;
+  }
   .navBar {
     padding: var(--spacer-300);
   }
@@ -238,6 +247,7 @@ svg {
     position: absolute;
 
     background-color: var(--clr-black-opacity);
+    z-index: 2;
   }
   .navBar__items::after {
     content: "";
@@ -303,6 +313,10 @@ svg {
 
 /* Infos */
 
+.infos__text--description {
+  color: var(--clr-black-opacity);
+}
+
 .infos__text h2 {
   line-height: 1;
 }
@@ -312,6 +326,20 @@ svg {
   padding: var(--spacer-300);
   background-color: var(--clr-neutral--300);
   border-radius: 5px;
+}
+
+.btn__primary {
+  border: none;
+  border-radius: 10px;
+  padding: var(--spacer-400);
+
+  color: var(--clr-white);
+  background-color: var(--clr-primary--400);
+  fill: var(--clr-white);
+
+  display: flex;
+  justify-content: center;
+  gap: var(--spacer-400);
 }
 
 /* End Infos */

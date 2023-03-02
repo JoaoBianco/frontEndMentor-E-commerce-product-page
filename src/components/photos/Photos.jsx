@@ -6,6 +6,9 @@ import smallPhoto_4 from "../../assets/image-product-4-thumbnail.jpg";
 import leftArrow from "../../assets/icon-previous.svg";
 import rightArrow from "../../assets/icon-next.svg";
 
+import { motion } from "framer-motion";
+import { rightSlide } from "../../animation/animations";
+
 const Photos = () => {
   const [bigPhoto, setBigPhoto] = useState(1);
   const bigPhotoPath = `src/assets/image-product-${bigPhoto}.jpg`;
@@ -19,7 +22,14 @@ const Photos = () => {
   }
 
   return (
-    <div>
+    <motion.div
+      variants={rightSlide}
+      initial="hidden"
+      animate="visible"
+      transition={{
+        duration: 1,
+      }}
+    >
       <div className="bigPhoto__container">
         <span className="arrow" onClick={() => changeImgHandler("prev")}>
           <img src={leftArrow} alt="previous" />
@@ -38,7 +48,7 @@ const Photos = () => {
         <img src={smallPhoto_3} alt="" />
         <img src={smallPhoto_4} alt="" />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

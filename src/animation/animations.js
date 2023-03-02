@@ -42,3 +42,13 @@ export const hambuguerMenuItem = {
     opacity: 1,
   },
 };
+
+export const leftSlide = {
+  hidden: { x: "-1000px" },
+  visible: { x: 0 },
+};
+
+export const rightSlide = {
+  hidden: { x: "1000px" },
+  visible: { x: 0 },
+};

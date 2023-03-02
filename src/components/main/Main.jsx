@@ -6,7 +6,9 @@ const Main = () => {
   return (
     <div className="main | flex">
       <Infos />
-      <Photos />
+      <div>
+        <Photos />
+      </div>
     </div>
   );
 };
