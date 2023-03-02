@@ -4,6 +4,9 @@
 *::after {
   box-sizing: border-box;
 }
+html {
+  overflow: hidden;
+}
 
 /* Remove default margin */
 body,

@@ -7,7 +7,7 @@ import leftArrow from "../../assets/icon-previous.svg";
 import rightArrow from "../../assets/icon-next.svg";
 
 import { motion } from "framer-motion";
-import { rightSlide } from "../../animation/animations";
+import { leftSlide } from "../../animation/animations";
 
 const Photos = () => {
   const [bigPhoto, setBigPhoto] = useState(1);
@@ -23,7 +23,7 @@ const Photos = () => {
 
   return (
     <motion.div
-      variants={rightSlide}
+      variants={leftSlide}
       initial="hidden"
       animate="visible"
       transition={{
@@ -43,10 +43,30 @@ const Photos = () => {
         <img src={bigPhotoPath} alt="next" />
       </div>
       <div className="smallPhotos__container">
-        <img src={smallPhoto_1} alt="" />
-        <img src={smallPhoto_2} alt="" />
-        <img src={smallPhoto_3} alt="" />
-        <img src={smallPhoto_4} alt="" />
+        <img
+          src={smallPhoto_1}
+          alt=""
+          className={`${bigPhoto === 1 ? "photoFocus" : ""}`}
+          onClick={() => setBigPhoto(1)}
+        />
+        <img
+          src={smallPhoto_2}
+          alt=""
+          className={`${bigPhoto === 2 ? "photoFocus" : ""}`}
+          onClick={() => setBigPhoto(2)}
+        />
+        <img
+          src={smallPhoto_3}
+          alt=""
+          className={`${bigPhoto === 3 ? "photoFocus" : ""}`}
+          onClick={() => setBigPhoto(3)}
+        />
+        <img
+          src={smallPhoto_4}
+          alt=""
+          className={`${bigPhoto === 4 ? "photoFocus" : ""}`}
+          onClick={() => setBigPhoto(4)}
+        />
       </div>
     </motion.div>
   );

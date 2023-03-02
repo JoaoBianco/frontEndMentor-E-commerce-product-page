@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import minus from "../../assets/icon-minus.svg";
 import plus from "../../assets/icon-plus.svg";
 import { motion } from "framer-motion";
-import { leftSlide } from "../../animation/animations";
+import { rightSlide } from "../../animation/animations";
 
 const Infos = () => {
   const [quantity, setQuantity] = useState(0);
@@ -17,8 +17,8 @@ const Infos = () => {
 
   return (
     <motion.div
-      className="container"
-      variants={leftSlide}
+      className="container infos"
+      variants={rightSlide}
       initial="hidden"
       animate="visible"
       transition={{
@@ -45,11 +45,17 @@ const Infos = () => {
       </div>
       <div className="info__cart | flex-direction-column gap-400 flex">
         <div className="info__cart--quantity | flex align-items-center">
-          <span onClick={() => changeQuantityHandler("minus")}>
+          <span
+            className="quantityChange"
+            onClick={() => changeQuantityHandler("minus")}
+          >
             <img src={minus} alt="minus" />
           </span>
           <p>{quantity}</p>
-          <span onClick={() => changeQuantityHandler("plus")}>
+          <span
+            className="quantityChange"
+            onClick={() => changeQuantityHandler("plus")}
+          >
             <img src={plus} alt="plus" />
           </span>
         </div>

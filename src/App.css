@@ -1,6 +1,7 @@
 :root {
   --clr-primary--300: hsl(25, 100%, 94%);
   --clr-primary--350: hsl(26, 100%, 55%, 20%);
+  --clr-primary--380: hsl(26, 100%, 55%, 50%);
   --clr-primary--400: hsl(26, 100%, 55%);
 
   --clr-neutral--300: hsl(223, 64%, 98%);
@@ -9,6 +10,7 @@
   --clr-neutral--600: hsl(220, 13%, 13%);
 
   --clr-white: hsl(0, 0%, 100%);
+  --clr-white-opacity: hsl(0, 0%, 100%, 40%);
   --clr-black-opacity: hsla(0, 0%, 0%, 0.7);
   --clr-black: hsl(0, 0%, 0%);
 
@@ -126,7 +128,7 @@
   border-radius: 5px;
 }
 
-@media (min-width: 40em) {
+@media (min-width: 62em) {
   .container {
     --spacer-container: min(10vw, 12rem);
     padding: var(--spacer-550) var(--spacer-container);
@@ -257,6 +259,7 @@ svg {
   }
   .navBar__items--list {
     z-index: 9999;
+    flex-direction: column;
     position: absolute;
     top: 7rem;
     font-weight: 700;
@@ -275,7 +278,20 @@ svg {
 /* Main */
 
 .main {
-  flex-direction: column-reverse;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 62em) {
+  .main {
+    --spacer-container: min(10vw, 12rem);
+
+    flex-direction: row;
+    padding-inline: calc(var(--spacer-container) + var(--spacer-400));
+    padding-block: var(--spacer-800);
+
+    align-items: center;
+  }
 }
 
 /* End Main */
@@ -309,6 +325,37 @@ svg {
   display: none;
 }
 
+@media (min-width: 62em) {
+  .bigPhoto__container img {
+    border-radius: 15px;
+    min-width: 300px;
+    width: 100%;
+    max-width: 500px;
+  }
+  .arrow {
+    display: none;
+  }
+
+  .smallPhotos__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: var(--spacer-500);
+    gap: var(--spacer-400);
+    max-width: 500px;
+  }
+  .smallPhotos__container > img {
+    border-radius: 15px;
+  }
+  .photoFocus {
+    opacity: 0.5;
+    outline: 5px solid var(--clr-primary--400);
+  }
+
+  .smallPhotos__container:is(:hover) {
+    cursor: pointer;
+  }
+}
+
 /* End Photos */
 
 /* Infos */
@@ -340,6 +387,39 @@ svg {
   display: flex;
   justify-content: center;
   gap: var(--spacer-400);
+  box-shadow: 0 10px 5px 0px var(--clr-primary--350);
+}
+
+.btn__primary:is(:hover) {
+  cursor: pointer;
+  background-color: var(--clr-primary--380);
+}
+
+.quantityChange:is(:hover, :focus-within) > * {
+  cursor: pointer;
+  opacity: 0.65;
+}
+
+@media (min-width: 62em) {
+  .infos {
+    max-width: 1000px;
+  }
+  .infos__text {
+    --fs-800: 3rem;
+  }
+  .infos__prices {
+    flex-direction: column;
+    align-items: self-start;
+  }
+  .info__cart {
+    flex-direction: row;
+  }
+  .info__cart > div {
+    flex: 1;
+  }
+  .info__cart > button {
+    flex: 2;
+  }
 }
 
 /* End Infos */

@@ -5,10 +5,8 @@ import Photos from "../photos/Photos";
 const Main = () => {
   return (
     <div className="main | flex">
+      <Photos />
       <Infos />
-      <div>
-        <Photos />
-      </div>
     </div>
   );
 };
