@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from "react";
+import Cart from "../cart/Cart";
 import avatar from "../../assets/image-avatar.png";
 import { motion } from "framer-motion";
 import { icon, cart, hambuguerMenuItem } from "../../animation/animations";
 
 const NavBar = () => {
   const [isMenuClosed, setIsMenuClosed] = useState(true);
+  const [isCartClosed, setIsCartClosed] = useState(true);
+  const [cartItems, setCartItems] = useState(
+    localStorage.getItem("cartItems")?.length > 0
+      ? JSON.parse(localStorage.getItem("cartItems"))
+      : []
+  );
 
   useEffect(() => {
     if (window.innerWidth >= 1000) {
@@ -12,9 +19,14 @@ const NavBar = () => {
     }
   }, []);
 
+  window.addEventListener("storage", () => {
+    setCartItems(JSON.parse(localStorage.getItem("cartItems")));
+  });
+
   return (
     <div className="container">
       <nav className="navBar | flex gap-400">
+        {!isCartClosed && <Cart />}
         <button
           className="hamburguer__menu"
           onClick={() => setIsMenuClosed(false)}
@@ -123,8 +135,16 @@ const NavBar = () => {
           </motion.ul>
         </div>
         <div className="navBar__cart | flex gap-700">
-          <div>
-            <button className="navBar__cart--btn">
+          <div className="navBar__cart--inner">
+            {cartItems?.length > 0 && (
+              <span className="navBar__cart--quantityTotal">
+                {cartItems.length}
+              </span>
+            )}
+            <button
+              onClick={() => setIsCartClosed(!isCartClosed)}
+              className="navBar__cart--btn"
+            >
               <motion.svg
                 width="22"
                 height="20"

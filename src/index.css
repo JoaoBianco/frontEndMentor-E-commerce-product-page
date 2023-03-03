@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 html {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* Remove default margin */

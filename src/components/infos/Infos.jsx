@@ -8,9 +8,10 @@ import { v4 as uuidv4 } from "uuid";
 
 const Infos = () => {
   const [quantity, setQuantity] = useState(0);
-  const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
-  console.log(cartItems);
+  const cartItems =
+    localStorage.getItem("cartItems")?.length > 0
+      ? JSON.parse(localStorage.getItem("cartItems"))
+      : [];
 
   function changeQuantityHandler(type) {
     if (type === "plus") {
@@ -21,8 +22,16 @@ const Infos = () => {
   }
 
   function addToCart() {
-    let itensToAdd = [...cartItems, { id: uuidv4(), quantity: quantity }];
+    if (quantity === 0) {
+      return;
+    }
+    let itensToAdd = [
+      ...cartItems,
+      { id: uuidv4(), quantity: quantity, price: 125 },
+    ];
     localStorage.setItem("cartItems", JSON.stringify(itensToAdd));
+    setQuantity(0);
+    window.dispatchEvent(new Event("storage"));
   }
 
   return (
