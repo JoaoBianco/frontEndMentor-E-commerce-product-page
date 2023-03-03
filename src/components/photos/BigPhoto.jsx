@@ -8,7 +8,7 @@ import rightArrow from "../../assets/icon-next.svg";
 
 const BigPhoto = ({ photoSelected, setPhotoSelected, setOpenBigPhoto }) => {
   const [bigPhoto, setBigPhoto] = useState(photoSelected);
-  const bigPhotoPath = `src/assets/image-product-${bigPhoto}.jpg`;
+  const bigPhotoPath = `/assets/image-product-${bigPhoto}.jpg`;
 
   function changeImgHandler(type) {
     if (type === "next") {
