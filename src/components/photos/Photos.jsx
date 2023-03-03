@@ -13,7 +13,7 @@ import BigPhoto from "./BigPhoto";
 const Photos = () => {
   const [bigPhoto, setBigPhoto] = useState(1);
   const [openBigPhoto, setOpenBigPhoto] = useState(false);
-  const bigPhotoPath = `src/assets/image-product-${bigPhoto}.jpg`;
+  const bigPhotoPath = `/assets/image-product-${bigPhoto}.jpg`;
 
   function changeImgHandler(type) {
     if (type === "next") {
