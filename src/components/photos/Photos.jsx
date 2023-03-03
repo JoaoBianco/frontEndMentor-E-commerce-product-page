@@ -8,9 +8,11 @@ import rightArrow from "../../assets/icon-next.svg";
 
 import { motion } from "framer-motion";
 import { leftSlide } from "../../animation/animations";
+import BigPhoto from "./BigPhoto";
 
 const Photos = () => {
   const [bigPhoto, setBigPhoto] = useState(1);
+  const [openBigPhoto, setOpenBigPhoto] = useState(false);
   const bigPhotoPath = `src/assets/image-product-${bigPhoto}.jpg`;
 
   function changeImgHandler(type) {
@@ -18,6 +20,12 @@ const Photos = () => {
       bigPhoto >= 4 ? setBigPhoto(1) : setBigPhoto(bigPhoto + 1);
     } else {
       bigPhoto <= 1 ? setBigPhoto(4) : setBigPhoto(bigPhoto - 1);
+    }
+  }
+
+  function openBigPhotoHandler() {
+    if (window.innerWidth > 1000) {
+      setOpenBigPhoto(true);
     }
   }
 
@@ -30,6 +38,13 @@ const Photos = () => {
         duration: 1,
       }}
     >
+      {openBigPhoto && (
+        <BigPhoto
+          photoSelected={bigPhoto}
+          setPhotoSelected={setBigPhoto}
+          setOpenBigPhoto={setOpenBigPhoto}
+        />
+      )}{" "}
       <div className="bigPhoto__container">
         <span className="arrow" onClick={() => changeImgHandler("prev")}>
           <img src={leftArrow} alt="previous" />
@@ -40,7 +55,7 @@ const Photos = () => {
         >
           <img src={rightArrow} alt="" />
         </span>
-        <img src={bigPhotoPath} alt="next" />
+        <img onClick={openBigPhotoHandler} src={bigPhotoPath} alt="next" />
       </div>
       <div className="smallPhotos__container">
         <img
